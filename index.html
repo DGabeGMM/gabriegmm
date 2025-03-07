@@ -15,7 +15,6 @@
             color: #f2f2f2;
         }
 
-        
         #botao-noturno {
             background-color: #333;
             color: #f2f2f2;
@@ -31,7 +30,9 @@
     </style>
 </head>
 <body>
-    <div align="center"><img src="https://www.minhareceita.com.br/app/uploads/2024/07/mobile-pudim-de-leite.png"></div>
+    <div align="center">
+        <img id="imagem-pudim" src="https://www.minhareceita.com.br/app/uploads/2024/07/mobile-pudim-de-leite.png">
+    </div>
     <div align="center"> 
         <h1> QUANTAS PESSOAS ACESSARAM O SITE: </h1> 
         <a href="https://contador.s12.com.br"><img src="https://contador.s12.com.br/img-94aZ61bYw7aZZy6z-91.gif" border="0" alt="contador de acesso"></a><script type="text/javascript" src="https://contador.s12.com.br/ad.js?id=94aZ61bYw7aZZy6z"></script>
@@ -44,13 +45,21 @@
     <script>
         const botaoNoturno = document.getElementById('botao-noturno');
         const corpo = document.body;
+        const imagemPudim = document.getElementById('imagem-pudim');
 
         botaoNoturno.addEventListener('click', () => {
             corpo.classList.toggle('noturno');
             if (corpo.classList.contains('noturno')) {
                 botaoNoturno.textContent = 'Modo Diurno';
+                imagemPudim.src = 'https://i.ytimg.com/vi/yXCaMcMZ4WE/maxresdefault.jpg';
+				imagemPudim.width = 650; // Largura máxima 
+				imagemPudim.height = 355; // Altura máxima 
+				
             } else {
                 botaoNoturno.textContent = 'Modo Noturno';
+                imagemPudim.src = 'https://www.minhareceita.com.br/app/uploads/2024/07/mobile-pudim-de-leite.png';
+				imagemPudim.width = 650; // Largura máxima
+				imagemPudim.height = 355; // Altura máxima 
             }
         });
     </script>
