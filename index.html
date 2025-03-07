@@ -1,23 +1,58 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>SITE DO GABRIEL</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SITE DO GABRIEL</title>
+    <style>
+        body {
+            background-color: #f2f2f2;
+            transition: background-color 0.5s;
+        }
+
+        body.noturno {
+            background-color: #333;
+            color: #f2f2f2;
+        }
+
+        
+        #botao-noturno {
+            background-color: #333;
+            color: #f2f2f2;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        #botao-noturno:hover {
+            background-color: #444;
+        }
+    </style>
 </head>
 <body>
+    <div align="center"><img src="https://www.minhareceita.com.br/app/uploads/2024/07/mobile-pudim-de-leite.png"></div>
+    <div align="center"> 
+        <h1> QUANTAS PESSOAS ACESSARAM O SITE: </h1> 
+        <a href="https://contador.s12.com.br"><img src="https://contador.s12.com.br/img-94aZ61bYw7aZZy6z-91.gif" border="0" alt="contador de acesso"></a><script type="text/javascript" src="https://contador.s12.com.br/ad.js?id=94aZ61bYw7aZZy6z"></script>
+    </div>
+    <form action="https://dgabegmm.github.io/gabriegmm/patchnotes"> 
+        <button type="submit">PATCH NOTES</button> 
+    </form>
+    <button id="botao-noturno">Modo Noturno</button>
 
-	
+    <script>
+        const botaoNoturno = document.getElementById('botao-noturno');
+        const corpo = document.body;
 
-
-	
-	<div align="center"><img src="https://www.minhareceita.com.br/app/uploads/2024/07/mobile-pudim-de-leite.png"></div>
-	<div align="center"> <h1> QUANTAS PESSOAS ACESSARAM O SITE: </h1> <a href="https://contador.s12.com.br"><img src="https://contador.s12.com.br/img-94aZ61bYw7aZZy6z-91.gif" border="0" alt="contador de acesso"></a><script type="text/javascript" src="https://contador.s12.com.br/ad.js?id=94aZ61bYw7aZZy6z"></script></div>
-<form action="https://dgabegmm.github.io/gabriegmm/patchnotes">
-<button type="submit">PATCH NOTES</button>
-</form>
-
-
+        botaoNoturno.addEventListener('click', () => {
+            corpo.classList.toggle('noturno');
+            if (corpo.classList.contains('noturno')) {
+                botaoNoturno.textContent = 'Modo Diurno';
+            } else {
+                botaoNoturno.textContent = 'Modo Noturno';
+            }
+        });
+    </script>
 </body>
 </html>
-
