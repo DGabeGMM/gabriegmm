@@ -27,6 +27,24 @@
         #botao-noturno:hover {
             background-color: #444;
         }
+
+		 .pudim {
+        position: absolute;
+        animation: subir 5s linear;
+    }
+    
+    @keyframes subir {
+        0% {
+            transform: translateY(0);
+        }
+        100% {
+            transform: translateY(-100vh);
+        }
+    }
+
+
+
+
     </style>
 </head>
 <body>
@@ -67,22 +85,53 @@
             if (corpo.classList.contains('noturno')) {
                 botaoNoturno.textContent = 'Modo Diurno';
                 imagemPudim.src = 'https://i.ytimg.com/vi/yXCaMcMZ4WE/maxresdefault.jpg';
-				imagemPudim.width = 650; // Largura máxima 
-				imagemPudim.height = 355; // Altura máxima 
+				imagemPudim.width = 650; // Largura mÃ¡xima 
+				imagemPudim.height = 355; // Altura mÃ¡xima 
 				
             } else {
                 botaoNoturno.textContent = 'Modo Noturno';
                 imagemPudim.src = 'https://www.minhareceita.com.br/app/uploads/2024/07/mobile-pudim-de-leite.png';
-				imagemPudim.width = 650; // Largura máxima
-				imagemPudim.height = 355; // Altura máxima 
+				imagemPudim.width = 650; // Largura mÃ¡xima
+				imagemPudim.height = 355; // Altura mÃ¡xima 
             }
         });
+
+		
+	// Função para criar pudins subindo
+    function criarPudim() {
+        const pudim = document.createElement('div');
+        pudim.classList.add('pudim');
+        const imagemPudim = document.createElement('img');
+        imagemPudim.src = 'https://cdn-icons-png.flaticon.com/512/3465/3465429.png';
+        imagemPudim.style.width = '30px';
+        imagemPudim.style.height = '30px';
+        pudim.appendChild(imagemPudim);
+        document.body.appendChild(pudim);
+        
+        // Define posição aleatória
+        pudim.style.left = Math.random() * 100 + 'vw';
+        pudim.style.bottom = '0px';
+        pudim.style.animationDuration = (Math.random() * 2 + 3) + 's'; // Entre 3 e 5 segundos
+        
+        // Remove o pudim após a animação
+        setTimeout(() => {
+            pudim.remove();
+        }, 5000);
+    }
+    
+    // Cria pudins continuamente
+    setInterval(criarPudim, 500);
+
+
+
+
+
     </script>
 	
 	
 	<div align="center">
 	
-	<iframe width="650" height="355" src="https://www.youtube.com/embed/olw3gMc4YlU" title="RECEITA DE PUDIM FÁCIL | PUDIM TRADICIONAL DE LEITE CONDENSADO  | Nandu Andrade" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+	<iframe width="650" height="355" src="https://www.youtube.com/embed/olw3gMc4YlU" title="RECEITA DE PUDIM FÃCIL | PUDIM TRADICIONAL DE LEITE CONDENSADO  | Nandu Andrade" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 	
 	</div>
 	
