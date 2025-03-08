@@ -1,140 +1,132 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-BR">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>SITE DO GABRIEL</title>
     <style>
+        /* Estilo para o corpo, garantindo centralização */
         body {
             background-color: #f2f2f2;
             transition: background-color 0.5s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
         }
 
+        /* Modo noturno */
         body.noturno {
             background-color: #333;
             color: #f2f2f2;
         }
 
-        #botao-noturno {
+        /* Estilos do botão */
+        #botao-noturno, button {
             background-color: #333;
             color: #f2f2f2;
             border: none;
             padding: 10px 20px;
             font-size: 16px;
             cursor: pointer;
+            margin: 10px;
+            border-radius: 5px;
         }
 
-        #botao-noturno:hover {
+        #botao-noturno:hover, button:hover {
             background-color: #444;
         }
 
-		 .pudim {
-        position: absolute;
-        animation: subir 5s linear;
-    }
-    
-    @keyframes subir {
-        0% {
-            transform: translateY(0);
+        /* Animação do pudim */
+        .pudim {
+            position: fixed;
+            animation: subir 5s linear infinite;
         }
-        100% {
-            transform: translateY(-100vh);
+
+        @keyframes subir {
+            0% {
+                transform: translateY(0);
+            }
+            100% {
+                transform: translateY(-100vh);
+            }
         }
-    }
 
+        /* Responsividade das imagens */
+        img {
+            max-width: 100%;
+            height: auto;
+        }
 
+        /* Caixa do vídeo com borda */
+        .video-container {
+            width: 100%;
+            max-width: 650px; /* Largura máxima para o iframe */
+            margin: 20px 0; /* Espaçamento para os outros elementos */
+            padding: 10px;
+            border: 3px solid #333; /* Borda ao redor da caixa */
+            border-radius: 10px; /* Bordas arredondadas */
+            background-color: #fff; /* Fundo branco para a caixa */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombras para a caixa */
+        }
 
-
+        .video-container iframe {
+            width: 100%;
+            height: 360px; /* Ajuste de altura */
+            border: none; /* Garantindo que o iframe não tenha borda */
+        }
     </style>
 </head>
 <body>
     <div align="center">
-        <img id="imagem-pudim" src="https://www.minhareceita.com.br/app/uploads/2024/07/mobile-pudim-de-leite.png">
-		
+        <img id="imagem-pudim" src="https://www.minhareceita.com.br/app/uploads/2024/07/mobile-pudim-de-leite.png" alt="Imagem de Pudim">
     </div>
-	
-	
+
     <div align="center">
-    <h1> QUANTIDADE DE ACESSOS: </h1>
-    <img src='https://contador.s12.com.br/img-y7YDZZ8ZZwA67008-33.gif' border='0' alt='contador'>
-    <script type='text/javascript' src='https://contador.s12.com.br/ad.js?id=y7YDZZ8ZZwA67008'></script>
-    <br>
-    <img src='https://img.meuip.page/selo-AWz2z7xYBWCw3Cy8.gif' alt='MEU IP' border='0'>
-</div>
-	
-	
-	
-	
-		<div align="center">
-    <form action="https://dgabegmm.github.io/gabriegmm/patchnotes"> 
-        <button type="submit">PATCH NOTES</button> 
-    </form>
-    <button id="botao-noturno">Modo Noturno</button>
-	
-	
-	
-	
-		</div>
+        <h1>QUANTIDADE DE ACESSOS:</h1>
+        <img src='https://contador.s12.com.br/img-y7YDZZ8ZZwA67008-33.gif' border='0' alt='contador'>
+        <script type='text/javascript' src='https://contador.s12.com.br/ad.js?id=y7YDZZ8ZZwA67008'></script>
+        <br>
+        <img src='https://img.meuip.page/selo-AWz2z7xYBWCw3Cy8.gif' alt='MEU IP' border='0'>
+    </div>
+
+    <div align="center">
+        <form action="https://dgabegmm.github.io/gabriegmm/patchnotes"> 
+            <button type="submit">PATCH NOTES</button> 
+        </form>
+        <button id="botao-noturno">Modo Noturno</button>
+    </div>
+
+    <!-- Caixa do vídeo com borda -->
+    <div id="video-container" class="video-container">
+        <iframe id="video" src="https://www.youtube.com/embed/olw3gMc4YlU" title="RECEITA DE PUDIM FÁCIL | PUDIM TRADICIONAL DE LEITE CONDENSADO  | Nandu Andrade" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
+
     <script>
         const botaoNoturno = document.getElementById('botao-noturno');
         const corpo = document.body;
         const imagemPudim = document.getElementById('imagem-pudim');
+        const video = document.getElementById('video');
 
         botaoNoturno.addEventListener('click', () => {
             corpo.classList.toggle('noturno');
             if (corpo.classList.contains('noturno')) {
                 botaoNoturno.textContent = 'Modo Diurno';
                 imagemPudim.src = 'https://i.ytimg.com/vi/yXCaMcMZ4WE/maxresdefault.jpg';
-				imagemPudim.width = 650; // Largura mÃ¡xima 
-				imagemPudim.height = 355; // Altura mÃ¡xima 
-				
+                imagemPudim.width = 650; // Largura máxima
+                imagemPudim.height = 355; // Altura máxima
+                video.src = "https://www.youtube.com/embed/bl-IP6-DkEg"; // Vídeo de modo noturno
             } else {
                 botaoNoturno.textContent = 'Modo Noturno';
                 imagemPudim.src = 'https://www.minhareceita.com.br/app/uploads/2024/07/mobile-pudim-de-leite.png';
-				imagemPudim.width = 650; // Largura mÃ¡xima
-				imagemPudim.height = 355; // Altura mÃ¡xima 
+                imagemPudim.width = 650; // Largura máxima
+                imagemPudim.height = 355; // Altura máxima
+                video.src = "https://www.youtube.com/embed/olw3gMc4YlU"; // Vídeo de modo diurno
             }
         });
-
-		
-	// Função para criar pudins subindo
-    function criarPudim() {
-        const pudim = document.createElement('div');
-        pudim.classList.add('pudim');
-        const imagemPudim = document.createElement('img');
-        imagemPudim.src = 'https://cdn-icons-png.flaticon.com/512/3465/3465429.png';
-        imagemPudim.style.width = '30px';
-        imagemPudim.style.height = '30px';
-        pudim.appendChild(imagemPudim);
-        document.body.appendChild(pudim);
-        
-        // Define posição aleatória
-        pudim.style.left = Math.random() * 100 + 'vw';
-        pudim.style.bottom = '0px';
-        pudim.style.animationDuration = (Math.random() * 2 + 3) + 's'; // Entre 3 e 5 segundos
-        
-        // Remove o pudim após a animação
-        setTimeout(() => {
-            pudim.remove();
-        }, 5000);
-    }
-    
-    // Cria pudins continuamente
-    setInterval(criarPudim, 500);
-
-
-
-
-
     </script>
-	
-	
-	<div align="center">
-	
-	<iframe width="650" height="355" src="https://www.youtube.com/embed/olw3gMc4YlU" title="RECEITA DE PUDIM FÃCIL | PUDIM TRADICIONAL DE LEITE CONDENSADO  | Nandu Andrade" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-	
-	</div>
-	
-	
+
 </body>
 </html>
